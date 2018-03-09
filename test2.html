@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MySQL Table Manager with Bootstrap/jquery/ajax/php/mysql</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class = "container" style="margin-top: 30px;">
+        <!-- Table Manager -->
+        <div id= "tableManager" class="modal fade">
+            <div class="modal-dialog">
+                <!-- Fills in space in the back with white background -->
+                <div class="modal-content">                    
+                    <div class="modal-header">
+                        <h2 class="modal-title">New Transaction</h2>
+                    </div>
+
+                    <div class="modal-body">
+                        <input type="text" class="form-control" placeholder="Item Name..." id="itemName"><br>
+                        <textarea class="form-control" id="location" placeholder="Location"></textarea><br>
+                        <textarea class="form-control" id="pPoint" placeholder="Pickup Point"></textarea><br>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" onclick="manageData(addNew)" value="Save" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                
+                <!-- Title -->
+                <h2>MySQL Table Manager</h2>
+                <!-- Create button -->
+                <input style="float: right" type="button" class="btn btn-success" id="addNew" value="Add New">
+                <!-- Create Spacing -->
+                <br><br>
+                <!-- Create table -->
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Time</td>
+                            <td>Item</td>
+                            <td>Location</td>
+                            <td>Pick Up Point</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- JQuery & Bootstrap js functionality-->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // When document has loaded
+        $(document).ready(function() {
+            $("#addNew").on('click', function () {
+                console.log("Working button");
+                $("#tableManager").modal('show');
+            });
+        });
+
+        function manageData(key) {
+            var item = $("#itemName");    
+            var location = $("#location");   
+            var pPoint = $("#pPoint");   
+
+            if(isNotEmpty(item) && isNotEmpty(location) && isNotEmpty(pPoint)){
+                $.ajax({
+                    url: 'ajax.php',
+                    method: 'POST',
+                    dataType: 'text',
+                    data: {
+                        key: key,
+                        item: item.val(),
+                        location: location.val(),
+                        pPoint: pPoint.val()
+                    }, success: function (response){
+                        alert(response);
+                    }
+                });
+            }
+
+        }
+
+        function isNotEmpty(caller) {
+            if (caller.val() == ''){
+                caller.css('border', '1px solid red');
+                return;
+            }else
+                caller.css('border', '');
+
+            return true;
+
+        }
+
+    </script>
+
+
+</body>
+</html>
