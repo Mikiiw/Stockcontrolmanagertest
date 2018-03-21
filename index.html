@@ -1,263 +1,449 @@
-<html lang="en">
+﻿<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Stock Control System</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="css/sidebar.css">
+    <title>Template Example</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-        <nav id="sidebar">
-            <!-- Sidebar Header -->
-            <div class="sidebar-header">
-                <h3>Sidebar Template</h3>
-            </div>
 
-            <!-- Sidebar Links -->
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#">Home</a>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" data-gr-c-s-loaded="true">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <a class="navbar-brand" href="index.html">GK Maxx Website Template</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+                    <a class="nav-link" href="index.html">
+                        <i class="fa fa-fw fa-dashboard"></i>
+                        <span class="nav-link-text">Supply</span>
+                    </a>
                 </li>
-                <li>
-                    <a href="#">About</a>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Charts">
+                    <a class="nav-link" href="checkout.html">
+                        <i class="fa fa-fw fa-shopping-cart"></i>
+                        <span class="nav-link-text">Checkout</span>
+                    </a>
                 </li>
-
-                <li>
-                    <!-- Link with dropdown items -->
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Page</a>
-                        </li>
-                        <li>
-                            <a href="#">Page</a>
-                        </li>
-                        <li>
-                            <a href="#">Page</a>
-                        </li>
-                    </ul>
-
-                    <li>
-                        <a href="#">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tables">
+                    <a class="nav-link" href="restock.html">
+                        <i class="fa fa-fw fa-table"></i>
+                        <span class="nav-link-text">Restock</span>
+                    </a>
+                </li>
             </ul>
-        </nav>
-
-        <!-- Page Content -->
-        <div id="content">
-
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <a href="#" class="navbar-left"><img src="images/gkmaxx.png" height="50px" width="50px"></a>
-                    
-                    <div class="navbar-left" width="20px">
-                         ----
+            <ul class="navbar-nav sidenav-toggler">
+                <li class="nav-item">
+                    <a class="nav-link text-center" id="sidenavToggler">
+                        <i class="fa fa-fw fa-angle-left"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-envelope"></i>
+                        <span class="d-lg-none">
+                            Messages
+                            <span class="badge badge-pill badge-primary">12 New</span>
+                        </span>
+                        <span class="indicator text-primary d-none d-lg-block">
+                            <i class="fa fa-fw fa-circle"></i>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+                        <h6 class="dropdown-header">New Messages:</h6>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <strong>GK Maxx Admin</strong>
+                            <span class="small float-right text-muted">11:21 AM</span>
+                            <div class="dropdown-message small">I hope you find this web page a good example of what we envision our supply page to be</div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <strong>GK Maxx Admin</strong>
+                            <span class="small float-right text-muted">11:21 AM</span>
+                            <div class="dropdown-message small">The template was taken from the SB Admin bootstrap toolkit preview</div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <strong>GK Maxx Admin</strong>
+                            <span class="small float-right text-muted">11:21 AM</span>
+                            <div class="dropdown-message small">Hello! This is a test website built to showcase the Gk Maxx supply website.</div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item small" href="#">View all messages</a>
                     </div>
-                
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">SQL Stock Control Preview</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-bell"></i>
+                        <span class="d-lg-none">
+                            Alerts
+                            <span class="badge badge-pill badge-warning">6 New</span>
+                        </span>
+                        <span class="indicator text-warning d-none d-lg-block">
+                            <i class="fa fa-fw fa-circle"></i>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                        <h6 class="dropdown-header">New Alerts:</h6>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <span class="text-success">
+                                <strong>
+                                    <i class="fa fa-long-arrow-up fa-fw"></i>Status Update
+                                </strong>
+                            </span>
+                            <span class="small float-right text-muted">11:42 AM</span>
+                            <div class="dropdown-message small">Biscuits have been restocked.</div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <span class="text-danger">
+                                <strong>
+                                    <i class="fa fa-long-arrow-down fa-fw"></i>Status Update
+                                </strong>
+                            </span>
+                            <span class="small float-right text-muted">11:26 AM</span>
+                            <div class="dropdown-message small">Apples are running low.</div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <span class="text-success">
+                                <strong>
+                                    <i class="fa fa-long-arrow-up fa-fw"></i>Status Update
+                                </strong>
+                            </span>
+                            <span class="small float-right text-muted">11:21 AM</span>
+                            <div class="dropdown-message small">Bananas are restocked</div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item small" href="#">View all alerts</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search for...">
+                            <span class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
                         </div>
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fa fa-fw fa-sign-out"></i>Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+
+            <!-- Example DataTables Card-->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <!-- New Product Button -->
+                    <input style="float: right" type="button" class="btn btn-sm" id="addNew" value="Add a New Product">
+                    <i class="fa fa-tachometer"></i> Overall Stock
                 </div>
-            </nav>
 
-            <!-- Hidden SQL Manager -->
-            <div id="tableManager" class="modal fade">
-                <div class="modal-dialog">
-                    <!-- Fills in space in the back with white background -->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title" id="title">New Transaction</h2>
-                        </div>
+                <!-- Hidden SQL Manager -->
+                <div id="editmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <!-- Fills in space in the back with white background -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="title">New Transaction</h5>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" placeholder="Product Name..." id="itemName">
+                                <br>
+                                <textarea class="form-control" id="description" placeholder="Description..."></textarea>
+                                <br>
+                                <textarea class="form-control" id="location" placeholder="Shelf Location..."></textarea>
+                                <br>
+                                <textarea class="form-control" id="Threshhold" placeholder="Threshhold Value..."></textarea>
+                                <input type="hidden" id="editRowID" value="0">
+                            </div>
 
-                        <div class="modal-body">
-                            <input type="text" class="form-control" placeholder="Item Name..." id="itemName">
-                            <br>
-                            <textarea class="form-control" id="location" placeholder="Location"></textarea>
-                            <br>
-                            <textarea class="form-control" id="pPoint" placeholder="Pickup Point"></textarea>
-                            <br>
-                            <input type="hidden" id="editRowID" value="0">
-                        </div>
-
-                        <!-- Button separated from textareas in its own divider -->
-                        <div class="modal-footer">
-                            <input type="button" id="manageBtn" onclick="manageData('addNew')" value="Save" class="btn btn-success">
+                            <!-- Button separated from textareas in its own divider -->
+                            <div class="modal-footer">
+                                <input type="button" id="manageBtn" onclick="manageData('addNew')" value="Save" class="btn btn-success">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <!-- Create button -->
-                        <input style="float: right" type="button" class="btn btn-success" id="addNew" value="Add New">
-                        <!-- Create Spacing -->
-                        <br>
-                        <br>
-                        <!-- Create table -->
-                        <table class="table table-hover">
-                            <thead class="thead-inverse">
+                <!-- Image viewer-->
+                <div id="imagemodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body" id="imgbody">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete viewer-->
+                <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this product?</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-primary" onclick="conf()" data-dismiss="modal">Delete</button>
+                                <input type="hidden" id="deleterowID" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="supplytable">
+                            <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Time</th>
-                                    <th>Item</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Current Stock</th>
+                                    <th>Threshhold</th>
                                     <th>Location</th>
-                                    <th>Pick Up Point</th>
-                                    <th>Status</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
-                            <tbody>
-    
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
-
-
+                <div class="card-footer small text-muted" id="datedemo">Updated at </div>
+            </div>
         </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Website Template @ GK Maxx 2018</small>
+                </div>
+            </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script src="js/dataTables.bootstrap4.js" type="text/javascript"></script>
 
 
+        <script src="js/sb-admin.min.js"></script>
+        <script type="text/javascript">
+            // When document has loaded
+            $(document).ready(function () { //jquery function after pageload
+                $("#addNew").on('click', function () {
+                    console.log("Working button");
+                    $("#editRowID").val(0);
+                    $("#itemName").val('');
+                    $("#location").val('');
+                    $("#description").val('');
+                    $("#Threshhold").val('');
+                    $("#editmodal").modal('show');
 
-    </div>
+                    $("#manageBtn").attr('value', 'Add').attr('onclick', "manageData('addNew')");
+                    $("#title").text("New Product");
+                });
 
-
-
-    <!-- JQuery & Bootstrap js functionality-->
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-    <script src="js/jquery.dataTables.js" type="text/javascript"></script>
-    <script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        // When document has loaded
-        $(document).ready(function () { //jquery function after pageload
-            $("#addNew").on('click', function () {
-                console.log("Working button");
-                $("#tableManager").modal('show');
+                var d = new Date();
+                $("#datedemo").append(Date());
+                getExistingData(0, 25);
             });
 
-            getExistingData(0, 10);
-
-        });
-
-        function edit(rowID) {
-            $.ajax({
-                url: 'ajax.php',
-                method: 'POST',
-                dataType: 'json',
-                data: {
-                    key: 'getRowData',
-                    rowID: rowID
-                }, success: function (response) { //Fills form with array from rowID
-                    $("#editRowID").val(rowID);
-                    $("#itemName").val(response.Item);
-                    $("#location").val(response.Location);
-                    $("#pPoint").val(response.Pickup);
-                    $("#tableManager").modal('show');
-
-                    $("#manageBtn").attr('value', 'Save Changes').attr('onclick', "manageData('updateRow')");
-                    $("#title").text("Update Transaction");
+            function view(rowID) {
+                if (rowID == 1) {
+                    $("#imagemodal").modal('show');
+                    $("#imgbody").html('<img src="images/apple.jpg">')
+                } else if (rowID == 2) {
+                    $("#imagemodal").modal('show');
+                    $("#imgbody").html('<img src="images/banana3.jpg">')
+                } else {
+                    $("#imagemodal").modal('show');
+                    $("#imgbody").text("No image available")
                 }
-            });
+            }
 
-        }
+            function deleterow(rowID) {
+                $("#deletemodal").modal('show');
+                $("#deleterowID").val(rowID);
+            }
 
-
-
-        function getExistingData(start, limit) {
-            $.ajax({
-                url: 'ajax.php',
-                method: 'POST',
-                dataType: 'text',
-                data: {
-                    key: 'getExistingData',
-                    start: start,
-                    limit: limit
-                }, success: function (response) {
-                    if (response != "reachedMax") {
-                        $('tbody').append(response);
-                        start += limit;
-                        getExistingData(start, limit);
-                    } else
-                        $(".table").DataTable(); //Plugin that creates a filter, display limit and viewpage
-                }
-            });
-        }
-
-        function manageData(key) {
-            var item = $("#itemName");
-            var location = $("#location");
-            var pPoint = $("#pPoint");
-            var editRowID = $("#editRowID");
-
-
-            if (isNotEmpty(item) && isNotEmpty(location) && isNotEmpty(pPoint)) {
-                //Sending an ajax file for update
+            function conf() {
                 $.ajax({
                     url: 'ajax.php',
                     method: 'POST',
                     dataType: 'text',
                     data: {
-                        key: key,
-                        item: item.val(),
-                        location: location.val(),
-                        pPoint: pPoint.val(),
-                        rowID: editRowID.val()
+                        key: 'delete',
+                        rowID: $("#deleterowID").val()
                     }, success: function (response) {
-                        if (response != "Changes successfully made")
-                            alert(response);
-                        else {
-                            //Updates item dynamically
-                            $("#item_" + editRowID.val()).text(item.val());
-                            item.val('');
-                            location.val('');
-                            pPoint.val('');
-                            $("#tableManager").modal('hide');
-                            $("#manageBtn").attr('value', 'Add').attr('onclick', "manageData('updateRow')");
-                            $("#title").text("New Transaction");
-                        }
+                        console.log(response);
+                        console.log("row" + $("#deleterowID").val());
+                        $("#row" + $("#deleterowID").val()).remove();
                     }
                 });
             }
 
-        }
+            function updateRow(){
+                $.ajax({
+                    url: 'ajax.php',
+                    method: 'POST',
+                    dataType: 'text',
+                    data: {
+                        key: 'getLastData',
+                    }, success: function (response) {
+                        $('tbody').append(response);
+                    }
+                });
+            }
 
-        // Error border filler
-        function isNotEmpty(caller) {
-            if (caller.val() == '') {
-                caller.css('border', '1px solid red');
-                return;
-            } else
-                caller.css('border', '');
+            function edit(rowID) {
+                console.log("Editing");
+                $.ajax({
+                    url: 'ajax.php',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        key: 'getRowData',
+                        rowID: rowID
+                    }, success: function (response) { //Fills form with array from rowID
+                        $("#editRowID").val(rowID);
+                        $("#itemName").val(response.Name);
+                        $("#location").val(response.Location);
+                        $("#description").val(response.Description);
+                        $("#Threshhold").val(response.Threshhold);
+                        $("#editmodal").modal('show');
 
-            return true;
+                        $("#manageBtn").attr('value', 'Save Changes').attr('onclick', "manageData('updateRow')");
+                        $("#title").text("Update Product");
+                    }
+                });
+            }
 
-        }
-    </script>
+            function getExistingData(start, limit) {
+                $.ajax({
+                    url: 'ajax.php',
+                    method: 'POST',
+                    dataType: 'text',
+                    data: {
+                        key: 'getExistingData',
+                        start: start,
+                        limit: limit
+                    }, success: function (response) {
+                        if (response != "reachedMax") {
+                            $('tbody').append(response);
+                            start += limit;
+                            getExistingData(start, limit);
+                        } else
+                            $("#supplytable").DataTable(); //Plugin that creates a filter, display limit and viewpage
+                    }
+                });
+            }
+
+            function manageData(key) {
+                var item = $("#itemName");
+                var description = $("#description");
+                var location = $("#location");
+                var stockthreshhold = $("#Threshhold")
+                var editRowID = $("#editRowID");
+
+
+                if (isNotEmpty(item) && isNotEmpty(location) && isNotEmpty(description) && isNotEmpty(stockthreshhold)) {
+                    //Sending an ajax file for update
+                    $.ajax({
+                        url: 'ajax.php',
+                        method: 'POST',
+                        dataType: 'text',
+                        data: {
+                            key: key,
+                            item: item.val(),
+                            description: description.val(),
+                            location: location.val(),
+                            threshhold: stockthreshhold.val(),
+                            rowID: editRowID.val()
+                        }, success: function (response) {
+                            if (response != "edit successfully made")
+                                if (response == "Item with this name already exists!")
+                                    alert(response)
+                                else {
+                                    $('#editmodal').modal('hide');
+                                    updateRow();
+                                }
+                            else {
+                                //Updates item dynamically
+                                $("#name" + editRowID.val()).text(item.val());
+                                $("#description" + editRowID.val()).text(description.val());
+                                $("#shelf" + editRowID.val()).text(location.val());
+                                $("#threshhold" + editRowID.val()).text(stockthreshhold.val());
+                                $("#editmodal").modal('hide');
+                            }
+                        }
+                    });
+                }
+
+            }
+
+            // Error border filler
+            function isNotEmpty(caller) {
+                if (caller.val() == '') {
+                    caller.css('border', '1px solid red');
+                    return;
+                } else
+                    caller.css('border', '');
+
+                return true;
+
+            }
+        </script>
+    </div>
+
+
+
 </body>
+
 
 </html>
