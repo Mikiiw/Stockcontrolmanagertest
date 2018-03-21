@@ -1,4 +1,4 @@
-<html lang="en">
+﻿<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -57,15 +57,17 @@
 
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
-                    <a href="#" class="navbar-left"><img src="images/gkmaxx.png" height="50px" width="50px"></a>
-                    
+                    <a href="#" class="navbar-left">
+                        <img src="images/gkmaxx.png" height="50px" width="50px">
+                    </a>
+
                     <div class="navbar-left" width="20px">
-                         ----
+                        ----
                     </div>
-                
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">SQL Stock Control Preview</a>
-                        </div>
+
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">SQL Stock Control Preview</a>
+                    </div>
                     <ul class="nav navbar-nav">
                         <li class="active">
                             <a href="#">Home</a>
@@ -111,31 +113,31 @@
             </div>
 
             <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <!-- Create button -->
-                        <input style="float: right" type="button" class="btn btn-success" id="addNew" value="Add New">
-                        <!-- Create Spacing -->
-                        <br>
-                        <br>
-                        <!-- Create table -->
-                        <table class="table table-hover">
-                            <thead class="thead-inverse">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Time</th>
-                                    <th>Item</th>
-                                    <th>Location</th>
-                                    <th>Pick Up Point</th>
-                                    <th>Status</th>
-                                    <th>Options</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-    
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col-md-10 col-md-offset-1">
+                    <!-- Create button -->
+                    <input style="float: right" type="button" class="btn btn-success" id="addNew" value="Add New">
+                    <!-- Create Spacing -->
+                    <br>
+                    <br>
+                    <!-- Create table -->
+                    <table class="table table-hover">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Current Stock</th>
+                                <th>Threshhold</th>
+                                <th>Location</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
                 </div>
+            </div>
 
 
         </div>
@@ -160,7 +162,7 @@
                 $("#tableManager").modal('show');
             });
 
-            getExistingData(0, 10);
+            getExistingData(0, 25);
 
         });
 

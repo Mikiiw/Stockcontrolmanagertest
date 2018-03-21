@@ -1,18 +1,53 @@
 <?php
     if(isset($_POST['key'])){
 
-        $conn = new mysqli('localhost', 'root', '', 'testing123');
+        $conn = new mysqli('localhost', 'root', '', 'stock control database');
 
         if ($_POST['key'] == 'getRowData') {
             $rowID = $conn->real_escape_string($_POST['rowID']);
-            $sql = $conn->query("SELECT Item, Location, Pickup FROM stockcontrol where id='$rowID'");
+            $sql = $conn->query("SELECT supply.ProductID, product.ProductName, product.Description, product.Location, supply.CurrentStockLevel, supply.StockThreshhold FROM supply INNER JOIN product ON supply.ProductID = product.ProductID WHERE SupplyID='$rowID'");
             $data = $sql->fetch_array();
             $jsonArray = array(
-                'Item' => $data['Item'],
+                'Name' => $data['ProductName'],
+                'Description' => $data['Description'],
                 'Location' => $data['Location'],
-                'Pickup' => $data['Pickup'],
+                'StockLevel' => $data['CurrentStockLevel'],
+                'Threshhold' => $data['StockThreshhold']
             );
             exit(json_encode($jsonArray)); //Sends whole array back to html file
+        }
+
+        if ($_POST['key'] == 'getLastData') {
+            $sql = $conn->query("SELECT supply.SupplyID, supply.ProductID, product.ProductName, product.Description, product.Location, supply.CurrentStockLevel, supply.StockThreshhold FROM supply INNER JOIN product ON supply.ProductID = product.ProductID ORDER BY supply.SupplyID DESC LIMIT 1");
+            while ($data = $sql->fetch_array()){
+                $response = "";
+                $response .= '
+                <tr id="row'.$data["SupplyID"].'">
+                    <td>'.$data["SupplyID"].'</td>
+                    <td id=name'.$data["SupplyID"].'>'.$data["ProductName"].'</td>
+                    <td id=description'.$data["SupplyID"].'>'.$data["Description"].'</td>
+                    <td>'.$data["CurrentStockLevel"].'</td>
+                    <td id=threshhold'.$data["StockThreshhold"].'>'.$data["StockThreshhold"].'</td>
+                    <td Shelf'.$data["SupplyID"].'>'.$data["Location"].'</td>
+                    <td>
+                        <input type="button" onclick="edit('.$data["SupplyID"].')" value="Edit" class="btn btn-primary btn-sm">
+                        <input type="button" onclick="view('.$data["SupplyID"].')" value="View" class="btn btn-sm">
+                        <input type="button" onclick="deleterow('.$data["SupplyID"].')"value="Delete" class="btn btn-danger btn-sm">
+                    </td>
+                </tr>
+                ';
+            }
+            exit($response);
+        }
+
+        if ($_POST['key'] == 'delete'){
+            $rowID = $conn->real_escape_string($_POST['rowID']);
+            $sql = $conn->query("SELECT ProductID FROM supply WHERE SupplyID='$rowID'");
+            $data = $sql->fetch_array();
+            $ProductID = $data["ProductID"];
+            $conn->query("DELETE FROM supply WHERE ProductID='$ProductID'");
+            $conn->query("DELETE FROM product WHERE ProductID='$ProductID'");
+            exit("Row Deleted");
         }
 
 
@@ -20,22 +55,22 @@
             $start = $conn->real_escape_string($_POST['start']);
             $limit = $conn->real_escape_string($_POST['limit']);
 
-            $sql = $conn->query("SELECT * FROM stockcontrol LIMIT $start, $limit");
+            $sql = $conn->query("SELECT supply.SupplyID, supply.ProductID, product.ProductName, product.Description, supply.CurrentStockLevel, supply.StockThreshhold, product.Location FROM supply INNER JOIN product ON supply.ProductID = product.ProductID LIMIT $start, $limit");
             if ($sql->num_rows > 0){
                 $response = "";
                 while ($data = $sql->fetch_array()){
                     $response .= '
-                    <tr>
-                        <td>'.$data["id"].'</td>
-                        <td>'.$data["Time"].'</td>
-                        <td id="item_'.$data["id"].'">'.$data["Item"].'</td>
-                        <td>'.$data["Location"].'</td>
-                        <td>'.$data["Pickup"].'</td>
-                        <td>'.$data["Status"].'</td>
+                    <tr id="row'.$data["SupplyID"].'">
+                        <td>'.$data["SupplyID"].'</td>
+                        <td id=name'.$data["SupplyID"].'>'.$data["ProductName"].'</td>
+                        <td id=description'.$data["SupplyID"].'>'.$data["Description"].'</td>
+                        <td>'.$data["CurrentStockLevel"].'</td>
+                        <td id=threshhold'.$data["SupplyID"].'>'.$data["StockThreshhold"].'</td>
+                        <td Shelf'.$data["SupplyID"].'>'.$data["Location"].'</td>
                         <td>
-                            <input type="button" onclick="edit('.$data["id"].')" value="Edit" class="btn btn-primary">
-                            <input type="button" value="View" class="btn">
-                            <input type="button" value="Delete" class="btn btn-danger">
+                            <input type="button" onclick="edit('.$data["SupplyID"].')" value="Edit" class="btn btn-primary btn-sm">
+                            <input type="button" onclick="view('.$data["SupplyID"].')" value="View" class="btn btn-sm">
+                            <input type="button" onclick="deleterow('.$data["SupplyID"].')"value="Delete" class="btn btn-danger btn-sm">
                         </td>
                     </tr>
                     ';
@@ -46,34 +81,39 @@
             }
         }
 
-
-
         $item = $conn->real_escape_string($_POST['item']);
+        $description = $conn->real_escape_string($_POST['description']);
         $location = $conn->real_escape_string($_POST['location']);
-        $pPoint = $conn->real_escape_string($_POST['pPoint']);
+        $threshhold = $conn->real_escape_string($_POST['threshhold']);
         $rowID = $conn->real_escape_string($_POST['rowID']);
             
-
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         } 
 
         if ($_POST['key'] == 'updateRow'){
-            $conn->query("UPDATE stockcontrol SET Item='$item', Location='$location', Pickup='$pPoint' WHERE id='$rowID'");
-            exit('Changes successfully made');
+            $conn->query("UPDATE supply SET StockThreshhold='$threshhold' WHERE SupplyID='$rowID'");
+            $sql=$conn->query("SELECT ProductID FROM supply WHERE SupplyID='$rowID'");
+            $data=$sql->fetch_array();
+            $productID=$data["ProductID"];
+            $conn->query("UPDATE product SET ProductName='$item', Location='$location', Description='$description' WHERE ProductID='$productID'");
+            exit('edit successfully made');
         
         }
         if ($_POST['key'] == 'addNew'){
-            $sql = $conn->query("SELECT id FROM stockcontrol WHERE item = '$item'");
+            $sql = $conn->query("SELECT ProductID FROM product WHERE ProductName = '$item'");
             if ($sql->num_rows > 0)
                 exit("Item with this name already exists!");
             else{
-                //echo($item." ".$location." ".$pPoint);
-                $sql2 = "INSERT INTO stockcontrol (Item, Location, Pickup) VALUES ('$item', '$location', '$pPoint')";
-                if($conn->query($sql2) == true){
-                    exit("Item has been inserted!");
-                }
+                $conn->query("INSERT INTO product (ProductName, Description, SupplyPrice, RetailPrice, Barcode, Location) VALUES ('$item', '$description', NULL, NULL, NULL, '$location')");
+                $sql = $conn->query($sql="SELECT ProductID FROM product where ProductName='$item'");
+                $data = $sql->fetch_array();
+                $ProductID = $data["ProductID"];
+                $conn->query("INSERT INTO supply (ProductID, CurrentStockLevel, StockThreshhold) VALUES ('$ProductID', 0, '$threshhold')");
+                exit("Item has been inserted!");
             }
         }
+
+
     }
 ?>
