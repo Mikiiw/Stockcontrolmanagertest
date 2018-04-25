@@ -28,7 +28,7 @@
                     <td id=description'.$data["SupplyID"].'>'.$data["Description"].'</td>
                     <td>'.$data["CurrentStockLevel"].'</td>
                     <td id=threshhold'.$data["StockThreshhold"].'>'.$data["StockThreshhold"].'</td>
-                    <td Shelf'.$data["SupplyID"].'>'.$data["Location"].'</td>
+                    <td Shelf'.$data["SupplyID"].'>Shelf '.$data["Location"].'</td>
                     <td>
                         <input type="button" onclick="edit('.$data["SupplyID"].')" value="Edit" class="btn btn-primary btn-sm">
                         <input type="button" onclick="view('.$data["SupplyID"].')" value="View" class="btn btn-sm">
@@ -66,7 +66,7 @@
                         <td id=description'.$data["SupplyID"].'>'.$data["Description"].'</td>
                         <td>'.$data["CurrentStockLevel"].'</td>
                         <td id=threshhold'.$data["SupplyID"].'>'.$data["StockThreshhold"].'</td>
-                        <td Shelf'.$data["SupplyID"].'>'.$data["Location"].'</td>
+                        <td Shelf'.$data["SupplyID"].'>Shelf '.$data["Location"].'</td>
                         <td>
                             <input type="button" onclick="edit('.$data["SupplyID"].')" value="Edit" class="btn btn-primary btn-sm">
                             <input type="button" onclick="view('.$data["SupplyID"].')" value="View" class="btn btn-sm">

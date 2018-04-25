@@ -25,7 +25,7 @@ function str_substract($remove, $subject){
                         <td>'.$data["TimeRequested"].'</td>
                         <td>'.$data["DateRequested"].'</td>
                         <td>'.$data["Status"].'</td>
-                        <td id=point'.$data["RestockID"].'>'.$data["PickupPoint"].'</td>
+                        <td id=point'.$data["RestockID"].'> Shelf '.$data["PickupPoint"].'</td>
                         <td id=quantity'.$data["RestockID"].'>'.$data["QuantityRestocked"].'</td>
                         <td>
                     ';
